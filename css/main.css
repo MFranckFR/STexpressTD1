@@ -1,0 +1,8 @@
+div.commentaire{
+    border-style: dashed;
+    border-color: red;
+}
+
+p.commentaire{
+    font-style:italic
+}
