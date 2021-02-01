@@ -1,0 +1,21 @@
+<!DOCTYPE html> <html lang="fr">
+<head>
+    <title>Personne: Accueil</title>
+</head>    
+    
+<body>
+    <h1>Page d'accueil</h1>
+    <p>Bienvenue <span style="color:red;font-size:18pt"><%= username %></span></p>
+    <h2>Gestion des utilisateurs</h2>
+    <ul>
+    <% personnes.forEach((p) =>{%>
+        <li>
+           <span style="color:blue"> <%= p.name %></span>
+           <span style="color:red;font-weight: bold;"> <%=p.surname %></span>,
+            <span style="color:orange"><%= p.age %></span> ans
+            <span>(<a href="/<%=username %>/personne/?id=<%=p.id %>">Show</a>|Edit|Delete)</span>
+        </li>
+   <% }) %>
+    </ul>
+</body>
+</html>
