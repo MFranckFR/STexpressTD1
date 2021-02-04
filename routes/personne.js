@@ -4,10 +4,6 @@ const router = express.Router();
 const personneModel = require('../models/personneModel');
 const username = "Kevin Nivek";
 
-const render_view = (resp, view, data) =>{
-    resp.render(view, data);
-}
-
 // Tous les utilisateurs
 // curl -i localhost:8080/personne/
 router.get('/search', (req, resp)=>{
@@ -16,7 +12,7 @@ router.get('/search', (req, resp)=>{
 router.get('/', (req, resp) =>{
     // const username = req.params.username ? req.params.username : 'Inconnu';   
     const next = (rows)=>{
-        render_view(resp, 'index.ejs', {username:username, personnes:rows});
+        resp.render('index.ejs', {username:username, personnes:rows});
     }
     const rows = personneModel.getAll(next);
 })
@@ -28,7 +24,7 @@ router.get('/show/:id', (req, resp)=>{
 
     const next = (rows)=>{
         if(rows.length == 1){
-            render_view(resp, 'pers_show.ejs', {username:username, personne:rows[0]});
+            resp.render('pers_show.ejs', {username:username, personne:rows[0]});
         } else {
             resp.send("Il n'y a aucune personne de cette ID");
         }
@@ -80,7 +76,7 @@ router.get('/edit/:id', (req, resp)=>{
 
     const next = (rows)=>{
         if(rows.length == 1){
-            render_view(resp, 'pers_edit.ejs', {
+            resp.render('pers_edit.ejs', {
                 username:username,
                 personne:rows[0],
                 action:action,
@@ -108,7 +104,7 @@ router.post('/edit/:id', (req, resp)=>{
         if(result.changedRows == 1){
             success = "MAJ REUSSI";
         }
-        render_view(resp, 'pers_edit.ejs', {
+        resp.render('pers_edit.ejs', {
             username:username,
             action:action+'/'+ p.id,
             personne:p,
