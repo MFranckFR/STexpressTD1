@@ -1,20 +1,33 @@
 <!DOCTYPE html> <html lang="fr">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/../assets/css/bootstrap.min.css" />
     <title>Personne: Accueil</title>
 </head>    
     
 <body>
-    <h1>Page d'accueil</h1>
-    <p>Bienvenue <span style="color:red;font-size:18pt"><%= username %></span></p>
+
+    
+    <span class="row jumbotron">
+        <h1 class="col-6">Page d'accueil</h1>
+        <p class="col-6 float-right" >Bienvenue <span style="color:red;font-size:18pt"><%= username %></span></p>
+    </span>
     <h2>Gestion des utilisateurs</h2>
-    <p><a href="/personne/add">Ajouter un utilisateur</a></p>
-    <ul>
+    <p><a class="btn btn-success" href="/personne/add">Ajouter un utilisateur</a></p>
+    <ul class="list-group">
     <% personnes.forEach((p) =>{%>
-        <li>
-           <span style="color:blue"> <%= p.name %></span>
-           <span style="color:red;font-weight: bold;"> <%=p.surname %></span>,
-            <span style="color:orange"><%= p.age %></span> ans
-            <span>(<a href="/personne/show/<%=p.id %>">Show</a>|<a href="/personne/edit/<%=p.id %>">Edit</a>|<a href="/personne/delete/<%=p.id %>">Delete</a>)</span>
+        <li class="list-group-item">
+            <span class="float-left">
+                <span style="color:blue"> <%= p.name %></span>
+                <span  style="color:red;font-weight: bold;"> <%=p.surname %></span>,
+                    <span  style="color:orange"><%= p.age %></span> ans
+            </span>
+            <span class="mb-3 float-right">
+                <a  class="btn btn-primary"  class="btn btn-success" href="/personne/show/<%=p.id %>">Show</a>
+                <a class="btn btn-success" href="/personne/edit/<%=p.id %>">Edit</a>
+                <a  class="btn btn-danger" href="/personne/delete/<%=p.id %>">Delete</a>
+            </span>
         </li>
    <% }) %>
     </ul>

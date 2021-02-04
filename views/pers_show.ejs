@@ -1,22 +1,28 @@
 <!DOCTYPE html> <html lang="fr">
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/../assets/css/bootstrap.min.css" />
+ 
     <title>Personne: Fiche</title>
 </head>    
     
 <body>
-    <p><a href="/personne">Retour vers la liste</a></p>
+    <p><a class="btn btn-secondary" href="/personne">Retour vers la liste</a></p>
     <h1>Personne:Show</h1>
   
     <h2>Fiche Personne #<%=personne.id%>  <%=personne.name %> <%=personne.surname %>%></h2>
     
-    <p><span style="font-weight:bold">Prenom:</span><span style="color:blue"> <%=personne.name %></span></p>
-    <p><span style="font-weight:bold">Nom: <span style="color:red;font-weight: bold;"> <%=personne.surname %></span></p>
-    <p><span style="font-weight:bold">Age:<span style="color:orange"><%=personne.age %></span> ans</p>
-    <p><span style="font-weight:bold">DateCrea:<span style="color:orange"><%=personne.dt_creat %></span></p>
-   
-    <p><span><a href="/personne/edit/<%=personne.id %>">Edit</a>
-            - <a href="/personne/delete/<%=personne.id %>">Delete</a>
-        </span>
-    </p>
+    <div class="mb-3">
+        <p class="mb-3"><span style="font-weight:bold">Prenom:</span><span style="color:blue"> <%=personne.name %></span></p>
+        <p class="mb-3"><span style="font-weight:bold">Nom: <span style="color:red;font-weight: bold;"> <%=personne.surname %></span></p>
+        <p class="mb-3"><span style="font-weight:bold">Age:<span style="color:orange"><%=personne.age %></span> ans</p>
+        <p class="mb-3"><span style="font-weight:bold">DateCrea:<span style="color:orange"><%=personne.dt_creat %></span></p>
+    
+        <p class="mb-3"><span>
+            <a class="btn btn-primary" href="/personne/edit/<%=personne.id %>">Edit</a>
+            <a  class="btn btn-danger" href="/personne/delete/<%=personne.id%>" class="btnDelete">Supprimer</a>
+            </span>
+        </p>
+    </div>
 </body>
 </html>

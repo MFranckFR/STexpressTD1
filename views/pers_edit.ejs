@@ -4,32 +4,36 @@
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Formulaire Personne</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/../assets/css/bootstrap.min.css" />
+ 
     <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
     <script src='js/main.js'></script>
 </head>
 <body>
-    <p><a href="/personne">Retour vers la liste</a></p>
+    <p><a class="btn btn-secondary" href="/personne">Retour vers la liste</a></p>
     <h1>Personne:Edit</h1>
   
     <h2>Fiche Personne #<%=personne.id%> <span style="color:orange"><%=success %></span></h2>
   
+    <div class="input-group mb-3">
     <form action="<%=action %>" method="POST">
         <input type="hidden" name="id" 
         value="<%=personne.id %>" />
-        <p><label for="name">Prenom</label>
-            <input required type="text" name="name" placeholder="Prenom" value="<%=personne.name %>" required />
+        <p class="mb-3"><label class="form-label" for="name">Prenom</label>
+            <input required class="form-control" type="text" name="name" placeholder="Prenom" value="<%=personne.name %>" required />
         </p>
-        <p><label for="surname">Nom</label>
-            <input required type="text" name="surname" placeholder="Nom" value="<%=personne.surname %>" required />
+        <p class="mb-3"><label class="form-label" for="surname">Nom</label>
+            <input required class="form-control" type="text" name="surname" placeholder="Nom" value="<%=personne.surname %>" required />
         </p>
-        <p><label for="age">Age</label>
-            <input type="text" name="age" placeholder="0"  value="<%=personne.age %>" required />
+        <p class="mb-3"><label class="form-label"  for="age">Age</label>
+            <input class="form-control"  type="text" name="age" placeholder="0"  value="<%=personne.age %>" required />
         <p>
-            <input type="submit" name="btnSubmit" value="Mettre à jour" />
-            <input type="reset" name="btnCancel" value="Annuler" />
-            <a href="/personne/delete/<%=personne.id%>" class="btnDelete">Supprimer</a>
+            <input class="btn btn-primary" type="submit" name="btnSubmit" value="Mettre à jour" />
+            <input class="btn btn-primary" type="reset" name="btnCancel" value="Annuler" />
+            <a  class="btn btn-danger" href="/personne/delete/<%=personne.id%>" class="btnDelete">Supprimer</a>
         </p>
     </form>
+    </div>
 </body>
 </html>
