@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Formulaire Personne</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
+    <script src='js/main.js'></script>
+</head>
+<body>
+    <p><a href="/personne">Retour vers la liste</a></p>
+    <h1>Personne:Edit</h1>
+  
+    <h2>Fiche Personne #<%=personne.id%> <span style="color:orange"><%=success %></span></h2>
+  
+    <form action="<%=action %>" method="POST">
+        <input type="hidden" name="id" 
+        value="<%=personne.id %>" />
+        <p><label for="name">Prenom</label>
+            <input required type="text" name="name" placeholder="Prenom" value="<%=personne.name %>" required />
+        </p>
+        <p><label for="surname">Nom</label>
+            <input required type="text" name="surname" placeholder="Nom" value="<%=personne.surname %>" required />
+        </p>
+        <p><label for="age">Age</label>
+            <input type="text" name="age" placeholder="0"  value="<%=personne.age %>" required />
+        <p>
+            <input type="submit" name="btnSubmit" value="Mettre à jour" />
+            <input type="reset" name="btnCancel" value="Annuler" />
+            <a href="/personne/delete/<%=personne.id%>" class="btnDelete">Supprimer</a>
+        </p>
+    </form>
+</body>
+</html>

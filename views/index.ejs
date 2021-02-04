@@ -7,13 +7,14 @@
     <h1>Page d'accueil</h1>
     <p>Bienvenue <span style="color:red;font-size:18pt"><%= username %></span></p>
     <h2>Gestion des utilisateurs</h2>
+    <p><a href="/personne/add">Ajouter un utilisateur</a></p>
     <ul>
     <% personnes.forEach((p) =>{%>
         <li>
            <span style="color:blue"> <%= p.name %></span>
            <span style="color:red;font-weight: bold;"> <%=p.surname %></span>,
             <span style="color:orange"><%= p.age %></span> ans
-            <span>(<a href="/<%=username %>/personne/?id=<%=p.id %>">Show</a>|Edit|Delete)</span>
+            <span>(<a href="/personne/show/<%=p.id %>">Show</a>|<a href="/personne/edit/<%=p.id %>">Edit</a>|<a href="/personne/delete/<%=p.id %>">Delete</a>)</span>
         </li>
    <% }) %>
     </ul>
