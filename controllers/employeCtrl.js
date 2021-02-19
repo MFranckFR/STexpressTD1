@@ -13,7 +13,7 @@ exports.getOne = (req, resp)=>{
   const query = Employe.findById(id, 
     (err, result)=>{
       if(err) throw err;
-      console.log('result', result);
+      console.log('getOne', result);
       resp.json(result);
     });
 }
@@ -35,7 +35,9 @@ exports.add = (req, resp)=>{
 }
 
 exports.delete = (req, resp) => {
-    let id = req.body._id;
+    //const id = req.body._id;
+    const id = req.params.id;
+    console.log('delete', id);
 
     Employe.deleteOne({_id: id}, 
       (err, result) => {
@@ -57,7 +59,7 @@ exports.edit = (req, resp) => {
     const opts = { new: true };
     Employe.findOneAndUpdate({_id: id}, emp, opts, (error, result) => {
         if (error) throw error;
-        console.log('result', result);
+        console.error('update', result);
         resp.json(result);
     });
   } else {
